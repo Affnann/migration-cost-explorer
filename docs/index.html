@@ -132,7 +132,11 @@
         html += '<p class="warn">You paid <strong>' + tk(r.overCap) + "</strong> more than the reported cap" +
           (r.capMonths != null ? ", about " + months(r.overCap / (wage - num("living") > 0 ? wage - num("living") : wage)) + " of extra work" : "") + ".</p>";
       }
-      html += '<p class="small">Cap source: ' + c.reported_by + " (" + c.report_date + "), set in " + c.year_set + ". " +
+      if (c.survey_avg_paid_tk != null) {
+        html += '<div class="row"><span>What workers going there actually paid, on average*</span><span>' + tk(c.survey_avg_paid_tk) + "</span></div>";
+      }
+      html += '<p class="small">' + (c.survey_avg_paid_tk != null ? "*Bangladesh Bureau of Statistics, Cost of Migration Survey 2020 (workers who left 2015–2018). " : "") +
+        "Cap source: " + c.reported_by + " (" + c.report_date + "), set in " + c.year_set + ". " +
         (c.note ? c.note + ". " : "") + "Official notice not found online.</p>";
     }
     out.innerHTML = html;

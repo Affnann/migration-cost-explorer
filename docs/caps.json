@@ -7,8 +7,10 @@
   "reported_by": "The Financial Express (minister's statement in parliament)",
   "report_date": "2018-01-17",
   "report_url": "https://thefinancialexpress.com.bd/economy/record-number-of-workers-went-abroad-in-2017-1516033631",
+  "current": "yes",
   "status": "reported in news; official notice not found online",
-  "note": "A 2019 Financial Express report gives Tk 262200"
+  "note": "A 2019 Financial Express report gives Tk 262200",
+  "survey_avg_paid_tk": 574241
  },
  {
   "destination": "Saudi Arabia",
@@ -18,8 +20,10 @@
   "reported_by": "The Financial Express (minister's statement in parliament)",
   "report_date": "2018-01-17",
   "report_url": "https://thefinancialexpress.com.bd/economy/record-number-of-workers-went-abroad-in-2017-1516033631",
+  "current": "yes",
   "status": "reported in news; official notice not found online",
-  "note": ""
+  "note": "",
+  "survey_avg_paid_tk": 547984
  },
  {
   "destination": "Saudi Arabia",
@@ -29,8 +33,10 @@
   "reported_by": "The Financial Express (minister's statement in parliament)",
   "report_date": "2018-01-17",
   "report_url": "https://thefinancialexpress.com.bd/economy/record-number-of-workers-went-abroad-in-2017-1516033631",
+  "current": "yes",
   "status": "reported in news; official notice not found online",
-  "note": ""
+  "note": "",
+  "survey_avg_paid_tk": 76995
  },
  {
   "destination": "Malaysia",
@@ -40,8 +46,10 @@
   "reported_by": "The Business Standard; The Daily Star",
   "report_date": "2022-07-06",
   "report_url": "https://www.tbsnews.net/bangladesh/migration-cost-malaysia-fixed-tk78990-454158",
+  "current": "yes",
   "status": "reported in news; official notice not found online",
-  "note": "Replaces the 2017 figure of Tk 160000; employers to pay air ticket and housing"
+  "note": "Replaces the 2017 figure of Tk 160000; employers to pay air ticket and housing",
+  "survey_avg_paid_tk": 404448
  },
  {
   "destination": "Libya",
@@ -51,8 +59,10 @@
   "reported_by": "The Financial Express (minister's statement in parliament)",
   "report_date": "2018-01-17",
   "report_url": "https://thefinancialexpress.com.bd/economy/record-number-of-workers-went-abroad-in-2017-1516033631",
+  "current": "yes",
   "status": "reported in news; official notice not found online",
-  "note": ""
+  "note": "",
+  "survey_avg_paid_tk": null
  },
  {
   "destination": "Bahrain",
@@ -62,8 +72,10 @@
   "reported_by": "The Financial Express (minister's statement in parliament)",
   "report_date": "2018-01-17",
   "report_url": "https://thefinancialexpress.com.bd/economy/record-number-of-workers-went-abroad-in-2017-1516033631",
+  "current": "yes",
   "status": "reported in news; official notice not found online",
-  "note": ""
+  "note": "",
+  "survey_avg_paid_tk": null
  },
  {
   "destination": "United Arab Emirates",
@@ -73,8 +85,10 @@
   "reported_by": "The Financial Express (minister's statement in parliament)",
   "report_date": "2018-01-17",
   "report_url": "https://thefinancialexpress.com.bd/economy/record-number-of-workers-went-abroad-in-2017-1516033631",
+  "current": "yes",
   "status": "reported in news; official notice not found online",
-  "note": ""
+  "note": "",
+  "survey_avg_paid_tk": null
  },
  {
   "destination": "Kuwait",
@@ -84,8 +98,10 @@
   "reported_by": "The Financial Express (minister's statement in parliament)",
   "report_date": "2018-01-17",
   "report_url": "https://thefinancialexpress.com.bd/economy/record-number-of-workers-went-abroad-in-2017-1516033631",
+  "current": "yes",
   "status": "reported in news; official notice not found online",
-  "note": ""
+  "note": "",
+  "survey_avg_paid_tk": null
  },
  {
   "destination": "Oman",
@@ -95,8 +111,10 @@
   "reported_by": "The Financial Express (minister's statement in parliament)",
   "report_date": "2018-01-17",
   "report_url": "https://thefinancialexpress.com.bd/economy/record-number-of-workers-went-abroad-in-2017-1516033631",
+  "current": "yes",
   "status": "reported in news; official notice not found online",
-  "note": ""
+  "note": "",
+  "survey_avg_paid_tk": 308047
  },
  {
   "destination": "Qatar",
@@ -106,8 +124,10 @@
   "reported_by": "The Financial Express (minister's statement in parliament)",
   "report_date": "2018-01-17",
   "report_url": "https://thefinancialexpress.com.bd/economy/record-number-of-workers-went-abroad-in-2017-1516033631",
+  "current": "yes",
   "status": "reported in news; official notice not found online",
-  "note": ""
+  "note": "",
+  "survey_avg_paid_tk": 402478
  },
  {
   "destination": "Iraq",
@@ -117,8 +137,10 @@
   "reported_by": "The Financial Express (minister's statement in parliament)",
   "report_date": "2018-01-17",
   "report_url": "https://thefinancialexpress.com.bd/economy/record-number-of-workers-went-abroad-in-2017-1516033631",
+  "current": "yes",
   "status": "reported in news; official notice not found online",
-  "note": ""
+  "note": "",
+  "survey_avg_paid_tk": null
  },
  {
   "destination": "Jordan",
@@ -128,8 +150,10 @@
   "reported_by": "The Financial Express (minister's statement in parliament)",
   "report_date": "2018-01-17",
   "report_url": "https://thefinancialexpress.com.bd/economy/record-number-of-workers-went-abroad-in-2017-1516033631",
+  "current": "yes",
   "status": "reported in news; official notice not found online",
-  "note": ""
+  "note": "",
+  "survey_avg_paid_tk": null
  },
  {
   "destination": "Egypt",
@@ -139,8 +163,10 @@
   "reported_by": "The Financial Express (minister's statement in parliament)",
   "report_date": "2018-01-17",
   "report_url": "https://thefinancialexpress.com.bd/economy/record-number-of-workers-went-abroad-in-2017-1516033631",
+  "current": "yes",
   "status": "reported in news; official notice not found online",
-  "note": ""
+  "note": "",
+  "survey_avg_paid_tk": null
  },
  {
   "destination": "Brunei",
@@ -150,8 +176,10 @@
   "reported_by": "The Financial Express (minister's statement in parliament)",
   "report_date": "2018-01-17",
   "report_url": "https://thefinancialexpress.com.bd/economy/record-number-of-workers-went-abroad-in-2017-1516033631",
+  "current": "yes",
   "status": "reported in news; official notice not found online",
-  "note": ""
+  "note": "",
+  "survey_avg_paid_tk": null
  },
  {
   "destination": "Russia",
@@ -161,8 +189,10 @@
   "reported_by": "The Financial Express (minister's statement in parliament)",
   "report_date": "2018-01-17",
   "report_url": "https://thefinancialexpress.com.bd/economy/record-number-of-workers-went-abroad-in-2017-1516033631",
+  "current": "yes",
   "status": "reported in news; official notice not found online",
-  "note": ""
+  "note": "",
+  "survey_avg_paid_tk": null
  },
  {
   "destination": "Maldives",
@@ -172,8 +202,10 @@
   "reported_by": "The Financial Express (minister's statement in parliament)",
   "report_date": "2018-01-17",
   "report_url": "https://thefinancialexpress.com.bd/economy/record-number-of-workers-went-abroad-in-2017-1516033631",
+  "current": "yes",
   "status": "reported in news; official notice not found online",
-  "note": ""
+  "note": "",
+  "survey_avg_paid_tk": null
  },
  {
   "destination": "Lebanon",
@@ -183,7 +215,9 @@
   "reported_by": "The Financial Express (minister's statement in parliament)",
   "report_date": "2018-01-17",
   "report_url": "https://thefinancialexpress.com.bd/economy/record-number-of-workers-went-abroad-in-2017-1516033631",
+  "current": "yes",
   "status": "reported in news; official notice not found online",
-  "note": ""
+  "note": "",
+  "survey_avg_paid_tk": null
  }
 ]
