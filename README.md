@@ -30,6 +30,8 @@ The survey report is a scanned document, so its tables were read with text recog
 
 ## 2. The True Cost Calculator
 
+**Use it here: https://affnann.github.io/migration-cost-explorer/**
+
 A web page where a worker enters the destination, the total amount paid, how much was borrowed and at what monthly interest, the expected wage and monthly spending abroad. It shows how many months of work it takes to earn the cost back, the total cost with interest, how much more than the cap was paid, and what workers going to the same country paid on average. Nothing typed into the page is saved or sent anywhere.
 
 The page is in `docs/`; the calculation is in `code/calc.js`. Each month the worker saves wage minus spending; savings first pay off the loan, with interest charged on what is still owed, and then earn back the part paid from the worker's own money. `code/calc.test.js` checks the calculation against hand-worked examples and the standard loan formula.
