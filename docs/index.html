@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>True Cost Calculator</title>
+<meta name="description" content="How many months of work it takes to earn back the cost of going abroad for work from Bangladesh, compared with the government's fee cap.">
+<style>
+  :root {
+    --bg: #f7f5f0; --card: #ffffff; --ink: #1d1d1b; --muted: #5f5d57;
+    --line: #dcd8cf; --accent: #0b6e4f; --warn: #a23b1d; --warn-bg: #fbeee9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #161614; --card: #20201d; --ink: #ecebe6; --muted: #a8a59c;
+      --line: #3a3934; --accent: #4fc39a; --warn: #f08a6c; --warn-bg: #3a231c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 640px; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; }
+  .lead { color: var(--muted); margin: 0 0 20px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px; margin-bottom: 16px; }
+  label { display: block; font-weight: 600; margin: 14px 0 4px; }
+  label:first-child { margin-top: 0; }
+  .hint { display: block; font-weight: 400; color: var(--muted); font-size: .88rem; }
+  input, select { width: 100%; padding: 10px 12px; font-size: 1rem; border: 1px solid var(--line);
+    border-radius: 8px; background: var(--bg); color: var(--ink); }
+  input:focus, select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .big { font-size: 2.4rem; font-weight: 700; color: var(--accent); line-height: 1.1; }
+  .row { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-top: 1px solid var(--line); }
+  .row span:last-child { font-weight: 600; text-align: right; white-space: nowrap; }
+  .warn { background: var(--warn-bg); color: var(--warn); border-radius: 8px; padding: 10px 12px; margin-top: 12px; }
+  .small { font-size: .85rem; color: var(--muted); }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>True Cost Calculator</h1>
+  <p class="lead">How many months of work does it take to earn back what you paid to go abroad? Enter your numbers below. Nothing you type is saved or sent anywhere.</p>
+
+  <div class="card">
+    <label for="dest">Destination country</label>
+    <select id="dest"></select>
+
+    <label for="fee">Total amount paid to go (Tk)
+      <span class="hint">Everything: recruiter, visa, ticket, medical, other fees</span></label>
+    <input id="fee" type="number" inputmode="numeric" min="0" placeholder="e.g. 450000">
+
+    <label for="borrowed">Of that, how much was borrowed? (Tk)
+      <span class="hint">Leave empty if you paid it all yourself</span></label>
+    <input id="borrowed" type="number" inputmode="numeric" min="0" placeholder="0">
+
+    <label for="rate">Loan interest per month (%)
+      <span class="hint">e.g. 3 if the lender charges 3% each month</span></label>
+    <input id="rate" type="number" inputmode="decimal" min="0" step="0.1" placeholder="0">
+
+    <label for="wage">Expected monthly wage abroad (Tk)</label>
+    <input id="wage" type="number" inputmode="numeric" min="0" placeholder="e.g. 40000">
+
+    <label for="living">Monthly spending abroad (Tk)
+      <span class="hint">Food, rent and other costs you pay yourself</span></label>
+    <input id="living" type="number" inputmode="numeric" min="0" placeholder="e.g. 10000">
+  </div>
+
+  <div class="card" id="result" aria-live="polite">
+    <p class="small">Fill in the amount paid and the wage to see your result.</p>
+  </div>
+
+  <div class="card small">
+    <p><strong>About the fee caps.</strong> The government sets a maximum amount workers can be charged for some countries. The caps shown here are the figures reported in Bangladeshi newspapers (most from the government's 2017 revision, Malaysia from 2022). The official notices were not found online, so these may be out of date. Check with the Probashbondhu call centre (16135) before relying on them.</p>
+    <p>This is an estimate, not financial or legal advice. Source code and data: <a href="https://github.com/Affnann/migration-cost-explorer">github.com/Affnann/migration-cost-explorer</a></p>
+  </div>
+</main>
+
+<script src="calc.js"></script>
+<script>
+(function () {
+  var caps = [];
+  var $ = function (id) { return document.getElementById(id); };
+  var tk = function (n) { return "Tk " + Math.round(n).toLocaleString("en-IN"); };
+  var num = function (id) { var v = parseFloat($(id).value); return isNaN(v) ? 0 : v; };
+
+  function fillCountries() {
+    var sel = $("dest");
+    var opt = document.createElement("option");
+    opt.value = ""; opt.textContent = "Other / not listed";
+    sel.appendChild(opt);
+    caps.forEach(function (c, i) {
+      var o = document.createElement("option");
+      o.value = String(i);
+      o.textContent = c.destination + (c.applies_to !== "all workers" ? " (" + c.applies_to + ")" : "");
+      sel.appendChild(o);
+    });
+  }
+
+  function months(m) {
+    if (m < 1) return "under 1 month";
+    var r = Math.round(m * 10) / 10;
+    return r + (r === 1 ? " month" : " months");
+  }
+
+  function render() {
+    var out = $("result");
+    var fee = num("fee"), wage = num("wage");
+    if (!(fee > 0) || !(wage > 0)) {
+      out.innerHTML = '<p class="small">Fill in the amount paid and the wage to see your result.</p>';
+      return;
+    }
+    var c = $("dest").value === "" ? null : caps[+$("dest").value];
+    var r = trueCost({
+      fee: fee, borrowed: num("borrowed"), monthlyRate: num("rate") / 100,
+      wage: wage, livingCost: num("living"), cap: c ? c.cap_tk : null
+    });
+    if (!r.ok) { out.innerHTML = '<p class="warn">' + r.errors.join("; ") + "</p>"; return; }
+
+    var html = "";
+    if (r.neverRepaid) {
+      html += '<p class="warn"><strong>At these numbers the cost is never paid back:</strong> ' + r.reason + ".</p>";
+    } else {
+      html += '<p class="small">Months of work to earn back the cost</p><div class="big">' + months(r.monthsToBreakEven) + "</div>";
+      html += '<div class="row"><span>Amount paid</span><span>' + tk(fee) + "</span></div>";
+      html += '<div class="row"><span>Interest on the loan</span><span>' + tk(r.interestPaid) + "</span></div>";
+      html += '<div class="row"><span>Total cost</span><span>' + tk(r.totalCost) + "</span></div>";
+    }
+    if (c) {
+      html += '<div class="row"><span>Reported fee cap for ' + c.destination + "</span><span>" + tk(c.cap_tk) + "</span></div>";
+      if (r.overCap > 0) {
+        html += '<p class="warn">You paid <strong>' + tk(r.overCap) + "</strong> more than the reported cap" +
+          (r.capMonths != null ? ", about " + months(r.overCap / (wage - num("living") > 0 ? wage - num("living") : wage)) + " of extra work" : "") + ".</p>";
+      }
+      html += '<p class="small">Cap source: ' + c.reported_by + " (" + c.report_date + "), set in " + c.year_set + ". " +
+        (c.note ? c.note + ". " : "") + "Official notice not found online.</p>";
+    }
+    out.innerHTML = html;
+  }
+
+  fetch("caps.json").then(function (r) { return r.json(); }).then(function (d) {
+    caps = d; fillCountries(); render();
+  }).catch(function () { fillCountries(); render(); });
+
+  ["dest", "fee", "borrowed", "rate", "wage", "living"].forEach(function (id) {
+    $(id).addEventListener("input", render);
+  });
+})();
+</script>
+</body>
+</html>
