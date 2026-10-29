@@ -2,6 +2,8 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23752073.svg)](https://doi.org/10.5281/zenodo.23752073)
 
+Published by [Mercenomics](https://mercenomics.org), an independent data archive on the business of force for hire.
+
 What Bangladeshi workers actually pay to go abroad for work, compared with the legal caps the government sets on recruitment costs, by destination country, plus a calculator that shows one worker how long it takes to earn that cost back.
 
 ![What workers paid to go abroad vs the legal cap](figures/cap_vs_paid.png)
@@ -65,7 +67,7 @@ figures/   the chart above
 
 ## How to cite
 
-Azom, Kazi Affnann (2026). *migration-cost-explorer* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.23752073
+Azom, Kazi Affnann (2026). *migration-cost-explorer* (Version v1.0.0) [Software]. Mercenomics. https://doi.org/10.5281/zenodo.23752073
 
 To cite every version, use https://doi.org/10.5281/zenodo.23752072.
 
